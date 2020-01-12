@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const requireDir = require('require-dir');
 const morgan = require('morgan');
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -16,6 +17,7 @@ app.use('/api', require('./src/routes'));
 
 
 app.use(morgan('dev'));
+app.use(cors());
 
 var port = process.env.PORT || 3001;
 app.listen(port);

@@ -19,8 +19,16 @@ module.exports = {
         return res.json(infos);
     },
 
+    // Get first item of our database
     async first_index(req, res) {
         const infos = await Info.findOne().sort({ _id: 1 });
+
+        return res.json(infos);
+    },
+
+    // Find element by pcKey
+    async findKey(req, res) {
+        const infos = await Info.find({pcKey: req.params.id});
 
         return res.json(infos);
     },
@@ -32,9 +40,17 @@ module.exports = {
         return res.json(info);
     },
 
-    // DElete based on id
+    // Delete based on id
     async destroy(req, res) {
         await Info.findByIdAndRemove(req.params.id);
+
+        return res.send();
+    },
+
+    // Delete based on pcKey
+    async destroyByPcKey(req, res) {
+        //const info = await Info.find({pcKey: req.params.id});
+        await Info.deleteOne({pcKey: req.params.id});
 
         return res.send();
     },

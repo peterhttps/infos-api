@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
 const InfoSchema = new mongoose.Schema({
-   power: {
+    pcKey: {
+        type: String,
+        required: true,
+    },
+    power: {
        type: String,
        required: true,
    },

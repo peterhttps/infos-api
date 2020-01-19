@@ -10,6 +10,8 @@ routes.get('/findKey/:id', InfoController.findKey);
 
 routes.post('/send', InfoController.send);
 
+routes.put('/updatePcKey/:id', InfoController.updateByPcKey);
+
 routes.delete('/delete/:id', InfoController.destroy);
 routes.delete('/deletePcKey/:id', InfoController.destroyByPcKey);
 

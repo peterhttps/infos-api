@@ -6,9 +6,13 @@ const InfoSchema = new mongoose.Schema({
         required: true,
     },
     power: {
-       type: String,
-       required: true,
-   },
+        type: String,
+        required: true,
+    },
+    processes: [{
+        name: String,
+        memory_usage: String,       
+    }],
    createdAt: {
        type: Date,
        default: Date.now,

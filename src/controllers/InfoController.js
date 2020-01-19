@@ -55,6 +55,13 @@ module.exports = {
         return res.send();
     },
 
+    // Search and update based on pcKey
+    async updateByPcKey(req, res) {
+        const info = await Info.findOneAndUpdate({pcKey: req.params.id}, req.body, { new: true });
+
+        return res.send();
+    },
+
     async a() {
 
     },
